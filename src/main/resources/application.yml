@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: leave-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/leave_service_db
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# Uncomment the following if needed
+# employee:
+#   service:
+#     url: http://localhost:8082
+
+server:
+  port: 8083
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    enabled: true
